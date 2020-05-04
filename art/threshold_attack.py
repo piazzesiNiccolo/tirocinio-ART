@@ -13,10 +13,7 @@ y_test = np.array([i[1] for i in test_data])
 
 model = load_model("model.h5")
 
-classifier = KerasClassifier(model, clip_values=(min_pixel_value, max_pixel_value), use_logits=False)
-
-
-classifier.fit(x_train, y_train,batch_size=64, nb_epochs=3)
+classifier = KerasClassifier(model, clip_values=(0, 255), use_logits=False)
 
 predictions = classifier.predict(x_test)
 
